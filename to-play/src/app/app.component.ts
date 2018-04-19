@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  games = [];
+
+  constructor(){
+    for(var i = 0; i < 30; i++){
+      this.games.push({title: "game" + (i+ 1), desc: "game"});
+    }
+  }
 }

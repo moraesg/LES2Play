@@ -5,3 +5,7 @@
 .navbar-spacer {
     justify-content: space-between;
 }
+.card-spacer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

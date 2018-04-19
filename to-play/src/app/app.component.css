@@ -1,0 +1,19 @@
+.card-filtro {
+    margin-top: 50%;
+}
+.card-filtro-spacer {
+    justify-content: space-between;
+    display: flex;
+}
+.card-filtro-title {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.card-img {
+    width: 30px;
+    height: 30px;
+}
+.card-filter-button {
+    padding: 0;
+    margin: 0;
+}

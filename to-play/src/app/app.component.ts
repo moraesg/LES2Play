@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { GameComponent } from './game/game.component';
+import { Component, TemplateRef, OnInit } from '@angular/core';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +10,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  modal: BsModalRef;
 
   games = [];
+  genders = [];
 
-  constructor(){
+  constructor(private modalService: BsModalService){
     for(var i = 0; i < 30; i++){
-      this.games.push({title: "game" + (i+ 1), desc: "game"});
+      this.games.push({title: "game" + (i + 1), desc: "game"});
     }
+    for(var i = 0; i < 10; i++){
+      this.genders.push("Gênero " + (i + 1));
+    }
+  }
+
+  openModal(game): void{
+    this.modal = this.modalService.show(GameComponent, game);
+    
+  }
+  closeModal(): void {
+    this.modal.content()
   }
 }

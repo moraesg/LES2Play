@@ -14,3 +14,10 @@
     top: 100%;
     
 }
+.body-container {
+    margin-top: 20px;
+}
+
+body {
+    background-color: #737373;
+}

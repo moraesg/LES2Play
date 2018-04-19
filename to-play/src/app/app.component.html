@@ -1,21 +1,45 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-spacer">
     <a class="navbar-brand">
-        <img class="img-navbar" src="http://www.iconarchive.com/download/i99284/froyoshark/enkel/Steam.ico">
+        <img class="img-navbar" src="../assets/img/logo.ico">
     </a>
-    <img class="img-navbar" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100">
+    <img class="img-navbar" src="../assets/img/user.png">
 </nav>
-<div class="container">
-    <div class="row row-spacer">
-        <div class="col-12 col-sm-6 col-lg-4" *ngFor="let game of games">
-            <div class="card card-spacer">
+<div class="container-fluid body-container">
+    <div class="row">
+        <div class="col-2 col-xm-12">
+            <div class="card card-filtro">
+                <div class="card-header card-filtro-spacer">
+                    <a class="card-filtro-title">Filtro</a>
+                    <a class="btn card-filter-button">
+                        <img class="card-img" src="../assets/img/search.png">
+                    </a>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">
-                        {{game.title}}
-                    </h5>
-                    <p>{{game.desc}}</p>
+                    <ul class="list-group list-group-flush" *ngFor="let gender of genders">
+                        <li class="list-group-item">
+                            <input type="checkbox"> {{gender}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-10 col-xm-12">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-4" *ngFor="let game of games">
+                        <div class="card card-spacer">
+                            <div class="card-body" (click)="openModal(game)">
+                                <h5 class="card-title">
+                                    {{game.title}}
+                                </h5>
+                                <p>{{game.desc}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark footer"></nav>

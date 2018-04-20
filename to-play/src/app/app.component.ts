@@ -17,7 +17,17 @@ export class AppComponent {
 
   constructor(private modalService: BsModalService){
     for(var i = 0; i < 30; i++){
-      this.games.push({title: "game" + (i + 1), desc: "game"});
+      this.games.push({name: "game" + (i + 1),
+      synopse: "game",
+      tags: "tag" + i,
+      price: i + 1,
+      releaseDate: i + "/" + i + "/" + i,
+      developer: "developer"+ i,
+      editor: "editor" + i,
+      gender: "gender" + i,
+      rating: i,
+      imgsrc: "../assets/img/search.png" 
+    });
     }
     for(var i = 0; i < 10; i++){
       this.genders.push("Gênero " + (i + 1));

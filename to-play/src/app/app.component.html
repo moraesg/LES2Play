@@ -28,11 +28,27 @@
                 <div class="row">
                     <div class="col-12 col-sm-6 col-lg-4" *ngFor="let game of games">
                         <div class="card card-spacer">
-                            <div class="card-body" (click)="openModal(game)">
-                                <h5 class="card-title">
-                                    {{game.title}}
-                                </h5>
-                                <p>{{game.desc}}</p>
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    {{game.name}}
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <img class="card-game-img" src="{{game.imgsrc}}">
+                                <p>
+                                    <span class="badge badge-dark">{{game.tags}}</span>
+                                </p>
+                                <p>{{game.synopse}}</p>
+                                <p>{{game.releasedate}}</p>
+                                <p>{{game.developer}}</p>
+                                <p>{{game.editor}}</p>
+                                <p>{{game.gender}}</p>
+                                <p>{{game.rating}}</p>
+                                <h4>R$ {{game.price}},00</h4>
+                            </div>
+                            <div class="card-footer">
+                                <button class="card-btn-footer">
+                                </button>
                             </div>
                         </div>
                     </div>

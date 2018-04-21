@@ -14,7 +14,7 @@ export class AppComponent {
 
   games = [];
   genders = [];
-
+  
   constructor(private modalService: BsModalService){
     for(var i = 0; i < 30; i++){
       this.games.push({name: "game" + (i + 1),

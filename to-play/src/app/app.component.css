@@ -30,3 +30,7 @@
 .card-game-img {
     width: 80%;
 }
+.filter-toggler {
+    border: 1;
+    border-color: lightgray;
+}

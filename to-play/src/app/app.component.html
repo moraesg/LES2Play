@@ -6,8 +6,12 @@
 </nav>
 <div class="container body-container">
     <div class="row">
-        <div class="col-3 col-xm-12">
-            <div class="card sticky-top">
+        <div class="col-12 col-sm-6 col-lg-3 ">
+            <button id="toggler" class="navbar-toggler filter-toggler" type="button" data-toggle="collapse" data-target="#filter" aria-controls="filter" aria-expanded="true"
+                aria-label="Toggle navigation">
+                <i class="material-icons">filter_list</i>
+            </button>
+            <div id="filter" class="card sticky-top collapse show">
                 <div class="card-header card-filtro-spacer">
                     <a class="card-filtro-title">Filtro</a>
                     <a class="btn card-filter-button">
@@ -23,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-9 col-xm-12">
+        <div class="col-12 col-sm-6 col-lg-9">
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-6" *ngFor="let game of games">
                     <div class="card card-spacer">

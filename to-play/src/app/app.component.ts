@@ -11,6 +11,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 export class AppComponent {
   title = 'app';
   modal: BsModalRef;
+  searchBox = '';
+  filter =[];
 
   games = [];
   genders = [];
@@ -40,5 +42,19 @@ export class AppComponent {
   }
   closeModal(): void {
     this.modal.content()
+  }
+
+  search(){
+    console.log(this.filter);
+  }
+
+  setFilter(gender): void{
+    let status = this.filter.indexOf(gender);
+    if(status != -1){
+      this.filter.splice(status, 1);
+    }
+    else{
+      this.filter.push(gender);
+    }
   }
 }

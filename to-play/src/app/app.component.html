@@ -1,12 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-spacer">
+<header class="navbar navbar-expand-lg navbar-dark bg-dark navbar-spacer fixed-top">
     <a class="navbar-brand">
         <img class="img-navbar" src="../assets/img/logo.ico">
     </a>
-    <img class="img-navbar" src="../assets/img/user.png">
-</nav>
+    <div style="justify-content: flex-end">
+        <img class="img-navbar" style="margin-right: 30px" src="../assets/img/cart.png">
+        <img class="img-navbar" src="../assets/img/user.png">
+    </div>
+</header>
 <div class="container body-container">
     <div class="row">
-        <div class="col-12 col-sm-6 col-lg-3 ">
+        <aside class="col-12 col-sm-6 col-lg-3 ">
             <button id="toggler" class="navbar-toggler filter-toggler" type="button" data-toggle="collapse" data-target="#filter" aria-controls="filter" aria-expanded="true"
                 aria-label="Toggle navigation">
                 <i class="material-icons">filter_list</i>
@@ -14,20 +17,20 @@
             <div id="filter" class="card sticky-top collapse show">
                 <div class="card-header card-filtro-spacer">
                     <a class="card-filtro-title">Filtro</a>
-                    <a class="btn card-filter-button">
+                    <a class="btn card-filter-button" (click)="search()">
                         <img class="card-img" src="../assets/img/search.png">
                     </a>
                 </div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush" *ngFor="let gender of genders">
                         <li class="list-group-item">
-                            <input type="checkbox"> {{gender}}
+                            <input type="checkbox" (click)="setFilter(gender)">{{gender}}
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-9">
+        </aside>
+        <section class="col-12 col-sm-6 col-lg-9">
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-6" *ngFor="let game of games">
                     <div class="card card-spacer">
@@ -57,8 +60,8 @@
                 </div>
 
             </div>
-        </div>
+        </section>
     </div>
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark footer"></nav>
+<footer class="navbar navbar-expand-lg navbar-dark bg-dark footer"></footer>

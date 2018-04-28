@@ -1,8 +1,11 @@
+import { GameService } from './game.service';
+import { AppRoutesModule } from './app-routes/app-routes.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -12,9 +15,11 @@ import { GameComponent } from './game/game.component';
   ],
   imports: [
     BrowserModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AppRoutesModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

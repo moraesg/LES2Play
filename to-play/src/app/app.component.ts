@@ -1,3 +1,4 @@
+import { GenderService } from './gender.service';
 import { GameService } from './game.service';
 import { GameComponent } from './game/game.component';
 import { Component, TemplateRef, OnInit } from '@angular/core';
@@ -18,27 +19,14 @@ export class AppComponent {
   games = [];
   genders = [];
 
-  constructor(private modalService: BsModalService, private service: GameService) {
+  constructor(private modalService: BsModalService, private gameService: GameService, private genderService: GenderService) {
     this.init();
   }
 
   init() {
-    this.games = [];
-    for (var i = 0; i < 30; i++) {
-      this.games.push({
-        name: "game" + (i + 1),
-        synopse: "game",
-        tags: "tag" + i,
-        price: i + 1,
-        releaseDate: i + "/" + i + "/" + i,
-        developer: "developer" + i,
-        editor: "editor" + i,
-        gender: "gender " + i,
-        rating: i,
-        imgsrc: "../assets/img/search.png"
-      });
-
-    }
+    this.games = this.gameService.getGames();
+    this.genders = this.genderService.getGenders();
+    
     this.games.sort((a, b) => {
       if (a.name < b.name)
         return -1;
@@ -47,9 +35,7 @@ export class AppComponent {
       return 0;
     });
     //service.getGames().subscribe(data => this.games);
-    for (var i = 0; i < 10; i++) {
-      this.genders.push("gender " + (i + 1));
-    }
+    
   }
 
   openModal(game): void {

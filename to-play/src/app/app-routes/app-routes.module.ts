@@ -2,6 +2,8 @@ import { GameComponent } from './../game/game.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes} from '@angular/router';
+import { Observable } from 'rxjs/Rx';
+import { HttpClient } from '@angular/common/http';
 
 const routes: Routes = [
   {path: 'games', component: GameComponent}
@@ -11,4 +13,14 @@ const routes: Routes = [
   exports: [ RouterModule ],
   imports: [ RouterModule.forRoot(routes) ]
 })
-export class AppRoutesModule { }
+export class AppRoutesModule {
+
+  private url = "http://localhost:8080/";
+
+  constructor(private http: HttpClient){
+
+  }
+  getGames(){
+    return this.http.get(this.url + "games");
+  }
+}

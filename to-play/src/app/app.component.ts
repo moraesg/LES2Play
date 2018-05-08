@@ -11,6 +11,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  user = "";
   title = 'app';
   modal: BsModalRef;
   searchBox = '';

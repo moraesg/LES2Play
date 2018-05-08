@@ -3,9 +3,20 @@
         <img class="img-navbar" src="../assets/img/logo.ico">
     </a>
     <div>
-        <img class="img-navbar" style="margin-right: 30px" src="../assets/img/cart.png">
-        <img class="img-navbar" src="../assets/img/user.png">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <img class="img-navbar" style="margin-right: 30px" src="../assets/img/cart.png">
+            </li>
+            <li class="nav-item" *ngIf="!user">
+                <button type="button" class="btn btn-outline-light">Login</button>
+            </li>
+            <li class="nav-item" *ngIf="user">
+                <img class="img-navbar" src="../assets/img/user.png">
+            </li>
+
+        </ul>
     </div>
+
 </header>
 <div class="container body-container">
     <div class="row">

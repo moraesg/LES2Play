@@ -1,3 +1,4 @@
+import { LoginService } from './login.service';
 import { GenderService } from './gender.service';
 import { GameService } from './game.service';
 import { AppRoutesModule } from './app-routes/app-routes.module';
@@ -7,12 +8,14 @@ import { ModalModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameComponent
+    GameComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutesModule,
     HttpClientModule
   ],
-  providers: [GameService, GenderService],
+  providers: [GameService, GenderService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

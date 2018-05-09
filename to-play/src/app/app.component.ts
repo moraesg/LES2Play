@@ -13,7 +13,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor() {
+  constructor(private dataStorage: DataStorageService) {
 
   }
 }

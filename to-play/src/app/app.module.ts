@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { HomeComponent } from './home/home.component';
     ModalModule.forRoot(),
     AppRoutesModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [GameService, GenderService, LoginService, DataStorageService],
   bootstrap: [AppComponent]

@@ -1,12 +1,15 @@
+import { DataStorageService } from './data-storage.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class LoginService {
 
-  constructor() { }
+  constructor(private dataStorage: DataStorageService) { }
 
-  login(email, pass){
-    if(email == "adm" && pass == "adm"){
+  login(user){
+    if(user.email == "adm@adm.com" && user.pass == "adm"){
+      this.dataStorage.user = user;
+      this.dataStorage.user.adm = true;
       return true;
     }
     return false;

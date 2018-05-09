@@ -21,7 +21,7 @@ export class GameService {
         editor: "editor" + i,
         gender: "gender " + i,
         rating: i,
-        imgsrc: "../assets/img/search.png"
+        imgsrc: "http://sm.ign.com/ign_br/screenshot/default/be9d0df86f3e49059cfa1345cf980e15_59wn.jpg"
       });
     }
     return games;

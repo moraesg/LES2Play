@@ -1,5 +1,8 @@
+import { DataStorageService } from './../data-storage.service';
 import { Component } from '@angular/core';
 import { LoginService } from '../login.service';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,15 +10,15 @@ import { LoginService } from '../login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent{
+  
+  email = '';
+  pass = '';
 
-  constructor(private service: LoginService) { }
+  constructor(private router: Router, private service: LoginService, private dataStorage: DataStorageService) { }
 
-  login(email, pass){
-    if(this.service.login(email, pass)){
-      console.log("Login realizado");
-    }
-    else{
-      console.log("Login não realizado");
+  login(){
+    if(this.service.login({email: this.email, pass: this.pass, adm: false})){ 
+      this.router.navigate(["/home"]);
     }
   }
 

@@ -4,15 +4,22 @@
     </a>
     <div>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="this.dataStorage.user.adm">
                 <a routerLink="/cart">
+                    <button type="button" class="btn btn-outline-light">Cadastrar jogo</button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/cart" *ngIf="!this.dataStorage.user.adm">
                     <img class="img-navbar" style="margin-right: 30px" src="../assets/img/cart.png">
                 </a>
             </li>
-            <li class="nav-item" *ngIf="!user">
-                <button type="button" class="btn btn-outline-light">Login</button>
+            <li class="nav-item" *ngIf="!this.dataStorage.user">
+                <a routerLink="/login">
+                    <button type="button" class="btn btn-outline-light">Login</button>
+                </a>
             </li>
-            <li class="nav-item" *ngIf="user">
+            <li class="nav-item" *ngIf="this.dataStorage.user">
                 <img class="img-navbar" src="../assets/img/user.png">
             </li>
 

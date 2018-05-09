@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { AppComponent } from './app.component';
@@ -7,7 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full' },
   {path: 'home', component: HomeComponent},
-  {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

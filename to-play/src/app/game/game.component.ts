@@ -1,3 +1,4 @@
+import { Game } from './../models/game';
 import { DataStorageService } from './../data-storage.service';
 import { Component } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap';
@@ -10,7 +11,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent{
-  game = '';
+  game: Game = '';
 
   constructor(private bsModalRef:BsModalRef, private dataStorage: DataStorageService) {
     this.game = this.dataStorage.game;

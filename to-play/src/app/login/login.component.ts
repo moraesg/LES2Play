@@ -1,3 +1,4 @@
+import { User } from './../models/user';
 import { DataStorageService } from './../data-storage.service';
 import { Component } from '@angular/core';
 import { LoginService } from '../login.service';
@@ -11,13 +12,17 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent{
   
-  email = '';
-  pass = '';
+  user: User = {
+    email: '',
+    pass: '',
+    adm: false,
+    name: ''
+  };
 
   constructor(private router: Router, private service: LoginService, private dataStorage: DataStorageService) { }
 
   login(){
-    if(this.service.login({email: this.email, pass: this.pass, adm: false})){ 
+    if(this.service.login(this.user)){ 
       this.router.navigate(["/home"]);
     }
   }

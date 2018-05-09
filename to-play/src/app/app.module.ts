@@ -1,3 +1,4 @@
+import { DataStorageService } from './data-storage.service';
 import { LoginService } from './login.service';
 import { GenderService } from './gender.service';
 import { GameService } from './game.service';
@@ -9,21 +10,27 @@ import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { CartComponent } from './cart/cart.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    LoginComponent
+    LoginComponent,
+    CartComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     ModalModule.forRoot(),
     AppRoutesModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [GameService, GenderService, LoginService],
+  providers: [GameService, GenderService, LoginService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

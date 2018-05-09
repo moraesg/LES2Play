@@ -1,11 +1,13 @@
 <header class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
-    <a class="navbar-brand">
+    <a class="navbar-brand" routerLink="/home">
         <img class="img-navbar" src="../assets/img/logo.ico">
     </a>
     <div>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <img class="img-navbar" style="margin-right: 30px" src="../assets/img/cart.png">
+                <a routerLink="/cart">
+                    <img class="img-navbar" style="margin-right: 30px" src="../assets/img/cart.png">
+                </a>
             </li>
             <li class="nav-item" *ngIf="!user">
                 <button type="button" class="btn btn-outline-light">Login</button>
@@ -18,64 +20,5 @@
     </div>
 
 </header>
-<div class="container body-container">
-    <div class="row">
-        <aside class="col-12 col-sm-6 col-lg-3 ">
-            <div class="sticky-top">
-                <button id="toggler" class="navbar-toggler filter-toggler" type="button" data-toggle="collapse" data-target="#filter" aria-controls="filter"
-                    aria-expanded="true" aria-label="Toggle navigation">
-                    <i class="material-icons">filter_list</i>
-                </button>
-                <div id="filter" class="card collapse show">
-                    <div class="card-header card-filtro-spacer">
-                        <a class="card-filtro-title">Filtro</a>
-                        <a class="btn card-filter-button" (click)="search()">
-                            <img class="card-img" src="../assets/img/search.png">
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let gender of genders">
-                            <li class="list-group-item">
-                                <input type="checkbox" (click)="setFilter(gender)">{{gender}}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </aside>
-        <section class="col-12 col-sm-6 col-lg-9">
-            <div class="row">
-                <div class="col-12 col-sm-6 col-lg-6" *ngFor="let game of games">
-                    <div class="card card-spacer">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                {{game.name}}
-                            </h3>
-                        </div>
-                        <div class="card-body">
-                            <img class="card-game-img" src="{{game.imgsrc}}">
-                            <p>
-                                <span class="badge badge-dark">{{game.tags}}</span>
-                            </p>
-                            <p>{{game.synopse}}</p>
-                            <p>{{game.releasedate}}</p>
-                            <p>{{game.developer}}</p>
-                            <p>{{game.editor}}</p>
-                            <p>{{game.gender}}</p>
-                            <p>{{game.rating}}</p>
-                            <h4>R$ {{game.price}},00</h4>
-                        </div>
-                        <div class="card-footer">
-                            <button class="card-btn-footer">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </div>
-</div>
-
+<router-outlet></router-outlet>
 <footer class="navbar navbar-expand-lg navbar-dark bg-dark footer"></footer>

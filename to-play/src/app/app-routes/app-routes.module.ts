@@ -1,3 +1,4 @@
+import { CartComponent } from './../cart/cart.component';
 import { GameComponent } from './../game/game.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

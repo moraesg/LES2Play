@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DataStorageService } from './../data-storage.service';
+import { Component } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -8,13 +9,11 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent implements OnInit{
-  title: string;
-  descr: string;
+export class GameComponent{
+  game = '';
 
-  constructor(private bsModalRef:BsModalRef) { }
-  
-  ngOnInit(){
-    
-  }
+  constructor(private bsModalRef:BsModalRef, private dataStorage: DataStorageService) {
+    this.game = this.dataStorage.game;
+   }
+
 }

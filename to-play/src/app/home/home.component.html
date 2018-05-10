@@ -14,6 +14,7 @@
                         </a>
                     </div>
                     <div class="card-body">
+                        <input type="search" placeholder="Pesquisar">
                         <ul class="list-group list-group-flush" *ngFor="let gender of genders">
                             <li class="list-group-item">
                                 <input type="checkbox" (click)="setFilter(gender)">{{gender}}

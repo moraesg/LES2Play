@@ -17,4 +17,9 @@ export class GameComponent{
     this.game = this.dataStorage.game;
    }
 
+  addCart(game){
+    this.dataStorage.cart.push(game);
+    console.log(this.dataStorage.cart);
+  }
+
 }

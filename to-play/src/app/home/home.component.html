@@ -9,15 +9,16 @@
                 <div id="filter" class="card collapse show">
                     <div class="card-header card-filtro-spacer">
                         <a class="card-filtro-title">Filtro</a>
-                        <a class="btn card-filter-button" (click)="search()">
+                        <a class="btn card-filter-button" (click)="searchTitle()">
                             <img class="card-img" src="../assets/img/search.png">
                         </a>
                     </div>
                     <div class="card-body">
-                        <input type="search" placeholder="Pesquisar">
+                        <input type="search" placeholder="Pesquisar" [(ngModel)]="this.searchBox" >
                         <ul class="list-group list-group-flush" *ngFor="let gender of genders">
                             <li class="list-group-item">
-                                <input type="checkbox" (click)="setFilter(gender)">{{gender}}
+                                <input type="checkbox" (click)="setFilter(gender)">
+                                <label>{{gender}}</label>
                             </li>
                         </ul>
                     </div>

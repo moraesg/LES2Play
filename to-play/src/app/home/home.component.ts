@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { GenderService } from './../gender.service';
 import { GameService } from './../game.service';
 import { GameComponent } from './../game/game.component';
@@ -53,7 +54,7 @@ export class HomeComponent{
     this.modal.content()
   }
 
-  search() {
+  searchGender() {
     this.init();
     if (this.filter.length) {
       let filteredGames = this.games.filter((game)=>{
@@ -71,10 +72,20 @@ export class HomeComponent{
     else {
       this.filter.push(gender);
     }
+    this.searchGender();
   }
 
   addCart(game){
     this.dataStorage.cart.push(game);
     console.log(this.dataStorage.cart);
+  }
+
+  searchTitle(){
+    this.init();
+    let filteredGames = this.games.filter((game)=>{
+      console.log(game.name + " " + this.searchBox);
+      return this.searchBox.includes(game.name);
+    }); 
+    this.games = filteredGames;
   }
 }

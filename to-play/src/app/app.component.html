@@ -14,12 +14,12 @@
                     <img class="img-navbar" style="margin-right: 30px" src="../assets/img/cart.png">
                 </a>
             </li>
-            <li class="nav-item" *ngIf="!this.dataStorage.user.name">
+            <li class="nav-item" *ngIf="!this.dataStorage.logged">
                 <a routerLink="/login">
                     <button type="button" class="btn btn-outline-light">Login</button>
                 </a>
             </li>
-            <li class="nav-item" *ngIf="this.dataStorage.user.name">
+            <li class="nav-item" *ngIf="this.dataStorage.logged">
                 <img class="img-navbar" src="../assets/img/user.png">
             </li>
 

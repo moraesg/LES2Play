@@ -15,5 +15,6 @@ export class DataStorageService {
     name: '',
   };
   cart = [];
+  logged = false;
 
 }

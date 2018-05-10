@@ -13,7 +13,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private dataStorage: DataStorageService) {
 
+  adm = false;
+  constructor(private dataStorage: DataStorageService) {
+    this.adm = dataStorage.user.adm;
   }
 }

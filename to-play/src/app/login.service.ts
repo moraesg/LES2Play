@@ -9,6 +9,7 @@ export class LoginService {
   login(user){
     if(user.email == "adm@adm.com" && user.pass == "adm"){
       this.dataStorage.user = user;
+      this.dataStorage.user.adm = true;
       this.dataStorage.logged = true;
       return true;
     }

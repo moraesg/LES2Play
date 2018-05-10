@@ -1,6 +1,6 @@
 export class User{
-    email: '';
-    pass: '';
-    adm: Boolean;
-    name: '';
+    email = '';
+    pass = '';
+    adm =  false;
+    name = '';
 }

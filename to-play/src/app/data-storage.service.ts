@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DataStorageService {
 
-  constructor() { }
-
   game: Game = {};
   user: User = {
     email: '',
@@ -16,5 +14,9 @@ export class DataStorageService {
   };
   cart = [];
   logged = false;
+
+  constructor() { }
+
+  
 
 }

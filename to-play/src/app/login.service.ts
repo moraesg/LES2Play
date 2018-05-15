@@ -1,12 +1,19 @@
+import { Observable } from 'rxjs/Rx';
+import { HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
 import { DataStorageService } from './data-storage.service';
 import { Injectable } from '@angular/core';
+
 
 @Injectable()
 export class LoginService {
 
-  constructor(private dataStorage: DataStorageService) { }
+  private url = "http://localhost:8080/games";
+
+  constructor(private dataStorage: DataStorageService,
+              private http: HttpClient,) { }
 
   login(user){
+    this.getUser();
     if(user.email == "adm@adm.com" && user.pass == "adm"){
       this.dataStorage.user = user;
       this.dataStorage.user.adm = true;
@@ -19,6 +26,20 @@ export class LoginService {
       return true;
     }
     return false;
+  }
+
+  getUser(){
+    const header = new HttpHeaders({ 'Content-Type': 'application/json' });
+    try {
+      this.http.get(this.url, {headers: header}).subscribe(res => console.log(res));
+    } catch (error) {
+      console.log("erroooooou");
+    }
+    ;
+  }
+
+  createUser(){
+
   }
 
 }

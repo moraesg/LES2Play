@@ -8,7 +8,7 @@ import { NgModule } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { AppRoutingModule } from './/app-routing.module';

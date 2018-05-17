@@ -1,8 +1,8 @@
+import { DataStorageService } from './../services/data-storage.service';
 import { FormsModule } from '@angular/forms';
-import { GenderService } from './../gender.service';
-import { GameService } from './../game.service';
+import { GenderService } from './../services/gender.service';
+import { GameService } from './../services/game.service';
 import { GameComponent } from './../game/game.component';
-import { DataStorageService } from './../data-storage.service';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { Component } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap';

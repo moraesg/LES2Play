@@ -1,7 +1,7 @@
-import { DataStorageService } from './data-storage.service';
-import { LoginService } from './login.service';
-import { GenderService } from './gender.service';
-import { GameService } from './game.service';
+import { DataStorageService } from './services/data-storage.service';
+import { LoginService } from './services/login.service';
+import { GenderService } from './services/gender.service';
+import { GameService } from './services/game.service';
 import { AppRoutesModule } from './app-routes/app-routes.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,6 +14,8 @@ import { CartComponent } from './cart/cart.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { AddGameComponent } from './add-game/add-game.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     GameComponent,
     LoginComponent,
     CartComponent,
-    HomeComponent
+    HomeComponent,
+    CreateAccountComponent,
+    AddGameComponent
   ],
   imports: [
     BrowserModule,

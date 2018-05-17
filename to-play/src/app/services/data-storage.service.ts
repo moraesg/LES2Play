@@ -1,5 +1,5 @@
-import { Game } from './models/game';
-import { User } from './models/user';
+import { User } from './../models/user';
+import { Game } from './../models/game';
 import { Injectable } from '@angular/core';
 
 @Injectable()

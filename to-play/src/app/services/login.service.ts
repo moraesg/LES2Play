@@ -1,8 +1,8 @@
+import { User } from './../models/user';
 import { Observable } from 'rxjs/Rx';
 import { HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
 import { DataStorageService } from './data-storage.service';
 import { Injectable } from '@angular/core';
-
 
 @Injectable()
 export class LoginService {
@@ -38,8 +38,13 @@ export class LoginService {
     ;
   }
 
-  createUser(){
-
+  createUser(user: User){
+    try {
+      console.log(user);
+      return true;
+    } catch (error) {
+      console.log("errou");
+    }
   }
 
 }

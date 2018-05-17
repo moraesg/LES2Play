@@ -1,4 +1,4 @@
-import { AppRoutesModule } from './app-routes/app-routes.module';
+import { AppRoutesModule } from './../app-routes/app-routes.module';
 import { Injectable } from '@angular/core';
 
 @Injectable()

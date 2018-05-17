@@ -1,3 +1,13 @@
-<div *ngFor="let game of cart" >
-  {{game.name}}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+          <span>Produto</span>
+          <span>Preço</span>
+        </div>
+        <div class="card-body" *ngFor="let game of cart">
+            <img class="img-cart" src="{{game.imgsrc}}">
+            <span class="game-title-cart">{{game.name}}</span>
+            <span class="game-price-cart">R$ {{game.price}},00</span>
+        </div>
+      </div>
 </div>

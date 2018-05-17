@@ -1,6 +1,5 @@
+import { AppRoutesModule } from './../app-routes/app-routes.module';
 import { Injectable } from '@angular/core';
-import { AppRoutesModule } from './app-routes/app-routes.module';
-
 
 @Injectable()
 export class GenderService {

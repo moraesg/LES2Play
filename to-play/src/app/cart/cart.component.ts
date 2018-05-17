@@ -1,4 +1,4 @@
-import { DataStorageService } from './../data-storage.service';
+import { DataStorageService } from './../services/data-storage.service';
 import { Component } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap';
 

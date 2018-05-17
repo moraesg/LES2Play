@@ -1,7 +1,7 @@
+import { DataStorageService } from './../services/data-storage.service';
+import { LoginService } from './../services/login.service';
 import { User } from './../models/user';
-import { DataStorageService } from './../data-storage.service';
 import { Component } from '@angular/core';
-import { LoginService } from '../login.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -25,6 +25,10 @@ export class LoginComponent{
     if(this.service.login(this.user)){ 
       this.router.navigate(["/home"]);
     }
+  }
+
+  criarConta() {
+    this.router.navigate(["/createAccount"]);
   }
 
 }

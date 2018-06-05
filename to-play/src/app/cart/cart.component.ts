@@ -16,4 +16,9 @@ export class CartComponent {
     this.cart = dataStorage.cart;
   }
 
+  removeGame(game){
+    this.cart.splice(this.cart.indexOf(game),1);
+    this.dataStorage.cart = this.cart;
+  }
+
 }

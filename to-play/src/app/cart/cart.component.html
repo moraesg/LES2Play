@@ -1,13 +1,21 @@
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-          <span>Produto</span>
-          <span>Preço</span>
-        </div>
-        <div class="card-body" *ngFor="let game of cart">
-            <img class="img-cart" src="{{game.imgsrc}}">
-            <span class="game-title-cart">{{game.name}}</span>
-            <span class="game-price-cart">R$ {{game.price}},00</span>
-        </div>
+  <div class="card">
+    <div class="card-header d-flex flex-row justify-content-between">
+      <div>Produto</div>
+      <div class="w-25 text-center">Preço</div>
+    </div>
+
+    <div class="card-body d-flex flex-xs-column flex-sm-column flex-md-row flex-lg-row flex-xl-row justify-content-between" *ngFor="let game of cart">
+      
+      <div class="d-flex flex-row align-items-center align-content-end">
+        <img class="img-cart d-none d-sm-block" src="{{game.imgsrc}}">
+        <div class="game-title-cart">{{game.name}}</div>
       </div>
+      <div class="d-flex flex-row align-items-center justify-content-end w-25">
+        <div class="pr-lg-5 pr-xg-5">R$ {{game.price}},00</div>
+        <img class="w-25 pl-3" src="../../assets/img/open-iconic/svg/x.svg" alt="remove" (click)="removeGame(game)">
+      </div>
+    </div>
+  </div>
+<button type="button" class="btn btn-light btn-lg btn-block mt-2" [ngClass]="{'d-none':this.cart.length == 0}" >Comprar</button>
 </div>

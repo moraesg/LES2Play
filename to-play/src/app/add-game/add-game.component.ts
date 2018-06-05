@@ -1,3 +1,5 @@
+import { TagService } from './../services/tag.service';
+import { GenderService } from './../services/gender.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,6 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-game.component.css']
 })
 export class AddGameComponent {
+
+  genders = [];
+  tags = [];
 
   game = {
     name: "",
@@ -18,8 +23,11 @@ export class AddGameComponent {
     gender: "",
     rating: "",
     imgsrc: ""
-  }
+  };
 
-  constructor() { }
+  constructor(private genderService: GenderService, private tagService: TagService) { 
+    this.genders = this.genderService.getGenders();
+    this.tags = this.tagService.getTags();
+  }
 
 }

@@ -1,31 +1,49 @@
-<form >
-  <div class="form-group">
-    <label>Nome</label>
-    <input name="name" [(ngModel)]="this.game.name" type="text" class="form-control" placeholder="Enter game name">
-  </div>
-  <div class="form-group">
-    <label>Sinopse</label>
-    <input name="synopse" [(ngModel)]="this.game.synopse" type="text" class="form-control" placeholder="Enter game synopse">
-  </div>
-  <div class="form-group">
-    <label>Preço</label>
-    <input name="preco" [(ngModel)]="this.game.price" type="number" class="form-control" placeholder="Enter game price">
-  </div>
-  <div class="form-group">
-    <label>Release date</label>
-    <input name="date" [(ngModel)]="this.game.releaseDate" type="date" class="form-control" placeholder="Enter game release date">
-  </div>
-  <div class="form-group">
-    <label>Developer</label>
-    <input name="developer" [(ngModel)]="this.game.developer" type="text" class="form-control" placeholder="Enter game developer">
-  </div>
-  <div class="form-group">
-    <label>Editor</label>
-    <input name="editor" [(ngModel)]="this.game.editor" type="text" class="form-control" placeholder="Enter game editor">
-  </div>
-  <div class="form-group">
-    <label>Image</label>
-    <input name="image" [(ngModel)]="this.game.imgsrc" type="text" class="form-control" placeholder="Enter image link of the game">
-  </div>
-  <button class="btn btn-primary" (click)="createAccount()">Adicionar jogo</button>
-</form>
+<div class="container body-container">
+  <form>
+    <div class="form-group">
+      <label>Nome</label>
+      <input name="name" [(ngModel)]="this.game.name" type="text" class="form-control" placeholder="Enter game name">
+    </div>
+    <div class="form-group">
+      <label>Sinopse</label>
+      <input name="synopse" [(ngModel)]="this.game.synopse" type="text" class="form-control" placeholder="Enter game synopse">
+    </div>
+    <div class="form-group">
+      <label>Preço</label>
+      <input name="preco" [(ngModel)]="this.game.price" type="number" class="form-control" placeholder="Enter game price">
+    </div>
+    <div class="form-group">
+      <label>Release date</label>
+      <input name="date" [(ngModel)]="this.game.releaseDate" type="date" class="form-control" placeholder="Enter game release date">
+    </div>
+    <div class="form-group">
+      <label>Developer</label>
+      <input name="developer" [(ngModel)]="this.game.developer" type="text" class="form-control" placeholder="Enter game developer">
+    </div>
+    <div class="form-group">
+      <label>Editor</label>
+      <input name="editor" [(ngModel)]="this.game.editor" type="text" class="form-control" placeholder="Enter game editor">
+    </div>
+    <div class="form-group">
+      <label>Image</label>
+      <input name="image" [(ngModel)]="this.game.imgsrc" type="text" class="form-control" placeholder="Enter image link of the game">
+    </div>
+    <div class="form-group">
+      <label>Gênero</label>
+      <select class="form-control">
+        <option *ngFor="let gender of genders">{{gender}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Tag</label>
+      <select class="form-control">
+        <option *ngFor="let tag of tags">{{tag}}</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" (click)="createAccount()">Adicionar jogo</button>
+    <a router-link="/home">
+      <button class="btn btn-primary" routerLink="">Cancelar</button>
+    </a>
+
+  </form>
+</div>

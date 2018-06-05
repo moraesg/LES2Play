@@ -3,15 +3,15 @@
         <img class="img-navbar" src="../assets/img/logo.ico">
     </a>
     <div>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item" *ngIf="this.dataStorage.user.adm">
+        <ul class="navbar-nav mr-auto flex-row">
+            <li class="nav-item pr-4" *ngIf="this.dataStorage.user.adm">
                 <a routerLink="/addGame">
                     <button type="button" class="btn btn-outline-light" >Cadastrar jogo</button>
                 </a>
             </li>
-            <li class="nav-item" *ngIf="!this.dataStorage.user.adm">
+            <li class="nav-item pr-4" *ngIf="!this.dataStorage.user.adm">
                 <a routerLink="/cart" >
-                    <img class="img-navbar" style="margin-right: 30px" src="../assets/img/cart.png">
+                    <img class="img-navbar" src="../assets/img/cart.png">
                 </a>
             </li>
             <li class="nav-item" *ngIf="!this.dataStorage.logged">

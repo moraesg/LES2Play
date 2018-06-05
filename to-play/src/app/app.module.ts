@@ -1,3 +1,4 @@
+import { TagService } from './services/tag.service';
 import { DataStorageService } from './services/data-storage.service';
 import { LoginService } from './services/login.service';
 import { GenderService } from './services/gender.service';
@@ -36,7 +37,7 @@ import { AddGameComponent } from './add-game/add-game.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [GameService, GenderService, LoginService, DataStorageService],
+  providers: [GameService, GenderService, LoginService, DataStorageService, TagService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -45,10 +45,6 @@ export class HomeComponent{
     this.dataStorage.game = game;
     this.modal = this.modalService.show(GameComponent);  
   }
-
-  openCart(): void {
-    
-  }
   
   closeModal(): void {
     this.modal.content()
@@ -77,7 +73,13 @@ export class HomeComponent{
 
   addCart(game){
     this.dataStorage.cart.push(game);
-    console.log(this.dataStorage.cart);
+  }
+
+  isInCart(game){
+   return this.dataStorage.cart.find((cartGame)=>{
+     return game == cartGame;
+   });
+    
   }
 
   searchTitle(){

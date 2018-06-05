@@ -49,8 +49,9 @@
                             <h4>R$ {{game.price}},00</h4>
                         </div>
                         <div class="card-footer">
-                            <button class="card-btn-footer" (click)="addCart(game)">
+                            <button class="card-btn-footer"  [ngClass]="{'bg-success':isInCart(game)}" (click)="addCart(game)">
                             </button>
+
                         </div>
                     </div>
                 </div>

@@ -1,17 +1,18 @@
-import { AppRoutesModule } from './../app-routes/app-routes.module';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApiServiceService } from '../api-service.service';
 
 @Injectable()
 export class GenderService {
 
-  constructor(private route: AppRoutesModule) { }
+  constructor(private http: HttpClient, private api: ApiServiceService) { }
 
   getGenders() {
-    var genders = []
-    for (var i = 0; i < 10; i++) {
-      genders.push("gender " + (i + 1));
+    try {
+      return this.http.get(this.api.url + "genres");
+    } catch (error) {
+      console.log(error);
     }
-    return genders;
   }
 
 }

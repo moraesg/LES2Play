@@ -21,5 +21,11 @@ export class GameComponent{
     this.dataStorage.cart.push(game);
     console.log(this.dataStorage.cart);
   }
+  isInCart(game){
+    return this.dataStorage.cart.find((cartGame)=>{
+      return game == cartGame;
+    });
+     
+   }
 
 }

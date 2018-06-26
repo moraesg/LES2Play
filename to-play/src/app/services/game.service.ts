@@ -1,30 +1,31 @@
-import { AppRoutesModule } from './../app-routes/app-routes.module';
+import { HttpClient } from '@angular/common/http';
+import { ApiServiceService } from './../api-service.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class GameService {
 
-  constructor(private route: AppRoutesModule) {
+  _url = "";
 
+  constructor(private api: ApiServiceService, private http: HttpClient){
+    this._url = api.url + "games";
   }
 
   getGames() {
-    var games = [];
-    for (var i = 0; i < 10; i++) {
-      games.push({
-        name: "game" + (i + 1),
-        synopse: "game",
-        tags: "tag" + i,
-        price: i + 1,
-        releaseDate: i + "/" + i + "/" + i,
-        developer: "developer" + i,
-        editor: "editor" + i,
-        gender: "gender " + i,
-        rating: i,
-        imgsrc: "http://sm.ign.com/ign_br/screenshot/default/be9d0df86f3e49059cfa1345cf980e15_59wn.jpg"
-      });
+    try{
+      return this.http.get(this._url);
+
+    }catch(error){
+      console.log(error);
     }
-    return games;
+  }
+
+  createGame(game){
+    try{
+      return this.http.post(this._url, game);
+    }catch(error){
+      console.log(error);
+    }
   }
 
 }

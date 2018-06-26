@@ -24,11 +24,13 @@ export class HomeComponent{
 
   constructor(private dataStorage: DataStorageService,private modalService: BsModalService, private gameService: GameService, private genderService: GenderService) {
     this.init();
+    setTimeout(()=> dataStorage.compra = false,1000);
   }
 
   init() {
-    this.games = this.gameService.getGames();
-    this.genders = this.genderService.getGenders();
+    this.dataStorage.isHome = true;
+    this.getGames()
+    this.genderService.getGenders();
     
     this.games.sort((a, b) => {
       if (a.name < b.name)
@@ -37,8 +39,15 @@ export class HomeComponent{
         return 1;
       return 0;
     });
-    //service.getGames().subscribe(data => this.games);
     
+  }
+
+  getGenres(){
+    this.genderService.getGenders().subscribe(data=> this.genders = data);
+  }
+
+  getGames(){
+    this.gameService.getGames().subscribe(data => this.games = data);
   }
 
   openModal(game): void {
@@ -46,10 +55,6 @@ export class HomeComponent{
     this.modal = this.modalService.show(GameComponent);  
   }
   
-  closeModal(): void {
-    this.modal.content()
-  }
-
   searchGender() {
     this.init();
     if (this.filter.length) {

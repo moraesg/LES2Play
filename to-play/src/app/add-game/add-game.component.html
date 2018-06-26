@@ -40,9 +40,9 @@
         <option *ngFor="let tag of tags">{{tag}}</option>
       </select>
     </div>
-    <button class="btn btn-primary" (click)="createAccount()">Adicionar jogo</button>
+    <button class="btn btn-primary" (click)="addGame()">Adicionar jogo</button>
     <a router-link="/home">
-      <button class="btn btn-primary" routerLink="">Cancelar</button>
+      <button class="btn btn-primary" routerLink="/home">Cancelar</button>
     </a>
 
   </form>

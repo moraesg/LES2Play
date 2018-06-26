@@ -3,4 +3,5 @@ export class User{
     pass = '';
     adm =  false;
     name = '';
+    type = 0;
 }

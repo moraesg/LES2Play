@@ -1,49 +1,36 @@
+import { ApiServiceService } from './../api-service.service';
+import { AppRoutingModule } from './../app-routing.module';
 import { User } from './../models/user';
 import { Observable } from 'rxjs/Rx';
 import { HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
 import { DataStorageService } from './data-storage.service';
 import { Injectable } from '@angular/core';
-
+import { map } from 'rxjs/operators';
+import { Config } from 'protractor';
 @Injectable()
 export class LoginService {
 
-  private url = "http://localhost:8080/games";
+  _url = "";
 
   constructor(private dataStorage: DataStorageService,
-              private http: HttpClient,) { }
+              private http: HttpClient, private api: ApiServiceService) {
+                this._url = api.url + "users";
+              }
 
   login(user){
-    this.getUser();
-    if(user.email == "adm@adm.com" && user.pass == "adm"){
-      this.dataStorage.user = user;
-      this.dataStorage.user.adm = true;
-      this.dataStorage.logged = true;
-      return true;
+    try {
+      //return this.http.get(this._url)
+      return this.http.post(this._url, user);
+    } catch (error) {
+      console.log(error);
     }
-    if(user.email == "visitor@adm.com" && user.pass == "visitor"){
-      this.dataStorage.user = user;
-      this.dataStorage.logged = true;
-      return true;
-    }
-    return false;
   }
 
-  getUser(){
-    const header = new HttpHeaders({ 'Content-Type': 'application/json' });
+  createUser(user){
     try {
-      this.http.get(this.url, {headers: header}).subscribe(res => console.log(res));
+      return this.http.post(this._url, user);
     } catch (error) {
-      console.log("erroooooou");
-    }
-    ;
-  }
-
-  createUser(user: User){
-    try {
-      console.log(user);
-      return true;
-    } catch (error) {
-      console.log("errou");
+      console.log(error);
     }
   }
 

@@ -6,14 +6,15 @@ import { Injectable } from '@angular/core';
 export class DataStorageService {
 
   game: Game = {};
-  user: User = {
+  user = {
     email: '',
     pass: '',
-    adm: false,
-    name: '',
   };
   cart = [];
   logged = false;
+  compra = false;
+
+  isHome;
 
   constructor() { }
 

@@ -12,19 +12,28 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent{
   
-  user: User = {
+  user = {
     email: '',
     pass: '',
-    adm: false,
-    name: ''
   };
+  users = [] ;
 
-  constructor(private router: Router, private service: LoginService, private dataStorage: DataStorageService) { }
+  constructor(private router: Router, private service: LoginService, private dataStorage: DataStorageService) {
+    this.dataStorage.isHome = false;
+   }
+
 
   login(){
-    if(this.service.login(this.user)){ 
-      this.router.navigate(["/home"]);
-    }
+    this.service.login(this.user).subscribe(data => {
+      if(data['email'] == this.user.email){
+        this.dataStorage.user = this.user;
+        this.dataStorage.logged = true;
+        this.router.navigate(["/home"]);
+        
+      }
+    })
+    
+    
   }
 
   criarConta() {

@@ -7,6 +7,7 @@ import { Component, TemplateRef, OnInit } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,7 +16,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 export class AppComponent {
 
   adm = false;
+  compra = false;
   constructor(private dataStorage: DataStorageService) {
     this.adm = dataStorage.user.adm;
+    this.compra = dataStorage.compra;
   }
 }

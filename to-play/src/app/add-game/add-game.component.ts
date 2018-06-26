@@ -1,4 +1,5 @@
-import { TagService } from './../services/tag.service';
+import { DataStorageService } from './../services/data-storage.service';
+import { GameService } from './../services/game.service';
 import { GenderService } from './../services/gender.service';
 import { Component } from '@angular/core';
 
@@ -11,6 +12,7 @@ export class AddGameComponent {
 
   genders = [];
   tags = [];
+  games = [];
 
   game = {
     name: "",
@@ -20,14 +22,24 @@ export class AddGameComponent {
     releaseDate: "",
     developer: "",
     editor: "",
-    gender: "",
+    genre: "",
     rating: "",
     imgsrc: ""
   };
 
-  constructor(private genderService: GenderService, private tagService: TagService) { 
-    this.genders = this.genderService.getGenders();
-    this.tags = this.tagService.getTags();
+  constructor(private dataStorage: DataStorageService, private genderService: GenderService, private gameService: GameService) {
+    this.dataStorage.isHome = false; 
+    this.genderService.getGenders().subscribe(data => this.genders = data);
+    this.gameService.getGames().subscribe(data =>{this.games = data
+      let genre = this.games.pop().genre
+      if(!this.tags.findIndex(genre)){
+        this.tags.push(genre);
+      }
+    });
+  }
+
+  addGame(){
+    this.gameService.createGame(this.game);
   }
 
 }

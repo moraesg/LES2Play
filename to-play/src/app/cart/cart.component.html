@@ -13,9 +13,9 @@
       </div>
       <div class="d-flex flex-row align-items-center justify-content-end w-25">
         <div class="pr-lg-5 pr-xg-5">R$ {{game.price}},00</div>
-        <img class="w-25 pl-3" src="../../assets/img/open-iconic/svg/x.svg" alt="remove" (click)="removeGame(game)">
+        <img class="pl-3" style="width: 50px; height: 30px" src="https://cdn4.iconfinder.com/data/icons/defaulticon/icons/png/256x256/cancel.png" alt="remove" (click)="removeGame(game)">
       </div>
     </div>
   </div>
-<button type="button" class="btn btn-light btn-lg btn-block mt-2" [ngClass]="{'d-none':this.cart.length == 0}" >Comprar</button>
+<button type="button" class="btn btn-light btn-lg btn-block mt-2" [ngClass]="{'d-none':this.cart.length == 0}" (click)="buyGames()">Comprar</button>
 </div>

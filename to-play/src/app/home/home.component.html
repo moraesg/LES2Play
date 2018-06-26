@@ -9,12 +9,11 @@
                 <div id="filter" class="card collapse show">
                     <div class="card-header card-filtro-spacer">
                         <a class="card-filtro-title">Filtro</a>
-                        <a class="btn card-filter-button" (click)="searchTitle()">
-                            <img class="card-img" src="../assets/img/search.png">
+                        <a class="btn card-filter-button" (click)="resetFiltro()">
+                            <img class="card-img" src="https://cdn4.iconfinder.com/data/icons/defaulticon/icons/png/256x256/cancel.png">
                         </a>
                     </div>
                     <div class="card-body">
-                        <input type="search" placeholder="Pesquisar" [(ngModel)]="this.searchBox" >
                         <ul class="list-group list-group-flush" *ngFor="let gender of genders">
                             <li class="list-group-item">
                                 <input type="checkbox" (click)="setFilter(gender)">
@@ -42,7 +41,7 @@
                             </p>
                             <p>{{game.synopse}}</p>
                             <p>{{game.rating}}</p>
-                            <h4>R$ {{game.price}},00</h4>
+                            <h4>R$ {{game.price}}</h4>
                         </div>
                         <div class="card-footer">
                             <button class="card-btn-footer"  [ngClass]="{'bg-success':isInCart(game)}" (click)="addCart(game)">

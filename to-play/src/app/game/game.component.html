@@ -13,9 +13,9 @@
         <p>{{game.releasedate}}</p>
         <p>{{game.developer}}</p>
         <p>{{game.editor}}</p>
-        <p>{{game.gender}}</p>
+        <p>{{game.genre}}</p>
         <p>{{game.rating}}</p>
-        <h4>R$ {{game.price}},00</h4>
+        <h4>R$ {{game.price}}</h4>
     </div>
     <div class="card-footer">
         <button class="card-btn-footer"  [ngClass]="{'bg-success':isInCart(game)}" (click)="addCart(game)">

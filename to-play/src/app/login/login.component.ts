@@ -13,26 +13,25 @@ import { Router } from '@angular/router';
 export class LoginComponent{
   
   user = {
-    email: '',
-    pass: '',
+    username: "",
+    password: "",
   };
-  users = [] ;
 
   constructor(private router: Router, private service: LoginService, private dataStorage: DataStorageService) {
     this.dataStorage.isHome = false;
    }
 
-
+   
   login(){
+    console.log(this.user);
     this.service.login(this.user).subscribe(data => {
-      if(data['email'] == this.user.email){
-        this.dataStorage.user = this.user;
+      console.log(data);
+      if(data){
+        this.dataStorage.user = data;
         this.dataStorage.logged = true;
         this.router.navigate(["/home"]);
-        
       }
-    })
-    
+    });    
     
   }
 

@@ -15,10 +15,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class AppComponent {
 
-  adm = false;
   compra = false;
   constructor(private dataStorage: DataStorageService) {
-    this.adm = dataStorage.user.adm;
     this.compra = dataStorage.compra;
   }
 }

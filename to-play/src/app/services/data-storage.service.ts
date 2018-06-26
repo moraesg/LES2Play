@@ -6,10 +6,7 @@ import { Injectable } from '@angular/core';
 export class DataStorageService {
 
   game: Game = {};
-  user = {
-    email: '',
-    pass: '',
-  };
+  user = {};
   cart = [];
   logged = false;
   compra = false;

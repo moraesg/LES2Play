@@ -22,6 +22,8 @@ export class GameService {
 
   createGame(game){
     try{
+      console.log(game);
+
       return this.http.post(this._url, game);
     }catch(error){
       console.log(error);

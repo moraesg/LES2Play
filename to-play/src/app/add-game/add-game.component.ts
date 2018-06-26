@@ -30,16 +30,11 @@ export class AddGameComponent {
   constructor(private dataStorage: DataStorageService, private genderService: GenderService, private gameService: GameService) {
     this.dataStorage.isHome = false; 
     this.genderService.getGenders().subscribe(data => this.genders = data);
-    this.gameService.getGames().subscribe(data =>{this.games = data
-      let genre = this.games.pop().genre
-      if(!this.tags.findIndex(genre)){
-        this.tags.push(genre);
-      }
-    });
+    this.gameService.getGames().subscribe(data =>this.games = data);
   }
 
   addGame(){
-    this.gameService.createGame(this.game);
+    this.gameService.createGame(this.game).subscribe(data=>console.log(data));
   }
 
 }

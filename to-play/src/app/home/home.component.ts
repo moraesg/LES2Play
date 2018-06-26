@@ -19,19 +19,19 @@ export class HomeComponent{
   searchBox = '';
   filter = [];
 
+  backupgames = []
   games = [];
   genders = [];
 
   constructor(private dataStorage: DataStorageService,private modalService: BsModalService, private gameService: GameService, private genderService: GenderService) {
-    this.init();
+    this.init()
+    this.dataStorage.isHome = true;
+    this.getGames();
+    this.getGenres();
     setTimeout(()=> dataStorage.compra = false,1000);
   }
 
   init() {
-    this.dataStorage.isHome = true;
-    this.getGames()
-    this.genderService.getGenders();
-    
     this.games.sort((a, b) => {
       if (a.name < b.name)
         return -1;
@@ -47,7 +47,9 @@ export class HomeComponent{
   }
 
   getGames(){
-    this.gameService.getGames().subscribe(data => this.games = data);
+    this.gameService.getGames().subscribe(data =>{
+      this.games = data;
+      this.backupgames = data});
   }
 
   openModal(game): void {
@@ -56,10 +58,10 @@ export class HomeComponent{
   }
   
   searchGender() {
-    this.init();
+    this.resetFiltro();
     if (this.filter.length) {
       let filteredGames = this.games.filter((game)=>{
-        return this.filter.includes(game.gender);
+        return this.filter.includes(game.genre);
       });
       this.games = filteredGames;
     }
@@ -86,13 +88,9 @@ export class HomeComponent{
    });
     
   }
-
-  searchTitle(){
+  
+  resetFiltro(){
+    this.games = this.backupgames;
     this.init();
-    let filteredGames = this.games.filter((game)=>{
-      console.log(game.name + " " + this.searchBox);
-      return this.searchBox.includes(game.name);
-    }); 
-    this.games = filteredGames;
   }
 }

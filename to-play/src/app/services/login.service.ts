@@ -10,17 +10,19 @@ import { Config } from 'protractor';
 @Injectable()
 export class LoginService {
 
-  _url = "";
+  _urlUsers = "";
+  _urlLogin = "";
 
   constructor(private dataStorage: DataStorageService,
               private http: HttpClient, private api: ApiServiceService) {
-                this._url = api.url + "users";
+                this._urlUsers = api.url + "users";
+                this._urlLogin = api.url + "login";
               }
 
   login(user){
     try {
-      //return this.http.get(this._url)
-      return this.http.post(this._url, user);
+      console.log(user);
+      return this.http.post(this._urlLogin, user);
     } catch (error) {
       console.log(error);
     }
@@ -28,7 +30,7 @@ export class LoginService {
 
   createUser(user){
     try {
-      return this.http.post(this._url, user);
+      return this.http.post(this._urlUsers, user);
     } catch (error) {
       console.log(error);
     }
